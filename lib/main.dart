@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'WallpaperHub',
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primarySwatch: Colors.grey
       ),
       home: Home(),
     );

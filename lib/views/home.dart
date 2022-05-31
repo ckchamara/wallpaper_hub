@@ -14,6 +14,25 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         title: Brandname(),
+        elevation: 0.0,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Search"
+                      ),
+                    ),
+                  ),
+                  Icon(Icons.search)
+                ],
+              )
+          ],
+        ),
       ),
     );
   }

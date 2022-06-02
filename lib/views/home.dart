@@ -1,11 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:wallpaper_hub/data/data.dart';
 import 'package:wallpaper_hub/widgets/widget.dart';
 import 'package:http/http.dart' as http;
-
 import '../model/catagories_model.dart';
 
 class Home extends StatefulWidget {
@@ -26,8 +24,9 @@ class _HomeState extends State<Home> {
         HttpHeaders.authorizationHeader: '563492ad6f917000010000012c0052627ec94545a4f01fff5e520e97',
       },
     );
-    print(response.body.toString());
+    // print(response.body.toString());
     Map<String,dynamic> jsonData =  jsonDecode(response.body);
+    jsonData['photos'];
   }
 
 

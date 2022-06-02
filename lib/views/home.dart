@@ -26,7 +26,9 @@ class _HomeState extends State<Home> {
     );
     // print(response.body.toString());
     Map<String,dynamic> jsonData =  jsonDecode(response.body);
-    jsonData['photos'];
+    jsonData['photos'].forEach((element) {
+      
+    });
   }
 
 

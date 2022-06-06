@@ -19,8 +19,9 @@ Widget brandname() {
 }
 
 
-Widget WallpapersList({List<WallpaperModel> wallpapers, Conte}){
+Widget WallpapersList({required List<WallpaperModel> wallpapers, ggg}){
   return Container(
-    child: GridView.count(crossAxisCount: null),
+    padding: EdgeInsets.symmetric(horizontal: 16),
+    child: GridView.count(crossAxisCount: 2, childAspectRatio: 0.6,),
   );
 }

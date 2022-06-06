@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:wallpaper_hub/data/data.dart';
+import 'package:wallpaper_hub/model/wallpaper_model.dart';
 import 'package:wallpaper_hub/widgets/widget.dart';
 import 'package:http/http.dart' as http;
 import '../model/catagories_model.dart';
@@ -15,6 +16,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<CatagoriesModel> catagories = [];
+  List<WallpaperModel> wallpapers = [];
 
 
   getTrendingWallpapers() async {
@@ -27,10 +29,14 @@ class _HomeState extends State<Home> {
     // print(response.body.toString());
     Map<String,dynamic> jsonData =  jsonDecode(response.body);
     jsonData['photos'].forEach((element) {
-      
+      // WallpaperModel wallpaperModel = new WallpaperModel();
+      WallpaperModel wallpaperModel = WallpaperModel.fromMap(element);
+      wallpapers.add(wallpaperModel);
     });
-  }
 
+    setState((){});
+
+  }
 
   @override
   void initState() {
@@ -90,6 +96,8 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
+
 
 class CatagoryTile extends StatelessWidget {
   String imgUrl = "";

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../model/wallpaper_model.dart';
+
 Widget brandname() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -13,5 +15,12 @@ Widget brandname() {
         style: TextStyle(color: Colors.blue),
       )
     ],
+  );
+}
+
+
+Widget WallpapersList({List<WallpaperModel> wallpapers, Conte}){
+  return Container(
+    child: GridView.count(crossAxisCount: null),
   );
 }

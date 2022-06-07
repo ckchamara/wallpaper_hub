@@ -25,7 +25,12 @@ Widget WallpapersList({required List<WallpaperModel> wallpapers, ggg}) {
       crossAxisCount: 2,
       childAspectRatio: 0.6,
       mainAxisSpacing: 6.0,
-      // child
+      children: wallpapers.map((wallpaper) {
+        return GridTile(
+            child: Container(
+            child: Image.network(wallpaper.src.portrait)
+        ));
+      }).toList(),
     ),
   );
 }

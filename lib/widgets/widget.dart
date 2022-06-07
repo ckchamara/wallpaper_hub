@@ -18,10 +18,14 @@ Widget brandname() {
   );
 }
 
-
-Widget WallpapersList({required List<WallpaperModel> wallpapers, ggg}){
+Widget WallpapersList({required List<WallpaperModel> wallpapers, ggg}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 16),
-    child: GridView.count(crossAxisCount: 2, childAspectRatio: 0.6,),
+    child: GridView.count(
+      crossAxisCount: 2,
+      childAspectRatio: 0.6,
+      mainAxisSpacing: 6.0,
+      // child
+    ),
   );
 }

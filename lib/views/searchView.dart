@@ -20,14 +20,13 @@ class _SearchViewState extends State<SearchView> {
   TextEditingController searchController = new TextEditingController();
   List<WallpaperModel> wallpapers = [];
 
-
   getSearchWallpapers(String query) async {
     var response = await http.get(
       Uri.parse('https://api.pexels.com/v1/search?query=$query'),
       //"https://api.pexels.com/v1/search?query=nature&per_page=1"
       headers: {
         HttpHeaders.authorizationHeader:
-        '563492ad6f917000010000012c0052627ec94545a4f01fff5e520e97',
+            '563492ad6f917000010000012c0052627ec94545a4f01fff5e520e97',
       },
     );
     // print(response.body.toString());
@@ -38,9 +37,7 @@ class _SearchViewState extends State<SearchView> {
       wallpapers.add(wallpaperModel);
     });
 
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -75,8 +72,11 @@ class _SearchViewState extends State<SearchView> {
                             hintText: "Search", border: InputBorder.none),
                       ),
                     ),
-                    InkWell(
-                        onTap: () {}, child: Container(child: Icon(Icons.search)))
+                    GestureDetector(
+                        onTap: () {
+                          getSearchWallpapers(searchController.text);
+                        },
+                        child: Container(child: Icon(Icons.search)))
                   ],
                 ),
               ),

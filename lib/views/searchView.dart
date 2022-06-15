@@ -7,16 +7,16 @@ import 'package:http/http.dart' as http;
 import '../model/wallpaper_model.dart';
 import '../widgets/widget.dart';
 
-class Search extends StatefulWidget {
+class SearchView extends StatefulWidget {
   final String searchQuery;
 
-  const Search({Key? key, required this.searchQuery}) : super(key: key);
+  const SearchView({Key? key, required this.searchQuery}) : super(key: key);
 
   @override
-  State<Search> createState() => _SearchState();
+  State<SearchView> createState() => _SearchViewState();
 }
 
-class _SearchState extends State<Search> {
+class _SearchViewState extends State<SearchView> {
   TextEditingController searchController = new TextEditingController();
   List<WallpaperModel> wallpapers = [];
 

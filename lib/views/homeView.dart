@@ -3,19 +3,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:wallpaper_hub/data/data.dart';
 import 'package:wallpaper_hub/model/wallpaper_model.dart';
-import 'package:wallpaper_hub/views/search.dart';
+import 'package:wallpaper_hub/views/searchView.dart';
 import 'package:wallpaper_hub/widgets/widget.dart';
 import 'package:http/http.dart' as http;
 import '../model/catagories_model.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeViewState extends State<HomeView> {
   List<CatagoriesModel> catagories = [];
   List<WallpaperModel> wallpapers = [];
 
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
       //https://api.pexels.com/v1/curated?per_page=8
       headers: {
         HttpHeaders.authorizationHeader:
-        '563492ad6f917000010000012c0052627ec94545a4f01fff5e520e97',
+            '563492ad6f917000010000012c0052627ec94545a4f01fff5e520e97',
       },
     );
     // print(response.body.toString());
@@ -77,10 +77,12 @@ class _HomeState extends State<Home> {
                     ),
                     InkWell(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (
-                              context) =>
-                              Search(searchQuery: searchController.text,
-                              )));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SearchView(
+                                        searchQuery: searchController.text,
+                                      )));
                         },
                         child: Container(child: Icon(Icons.search)))
                   ],

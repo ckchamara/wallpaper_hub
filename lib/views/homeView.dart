@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:wallpaper_hub/data/data.dart';
 import 'package:wallpaper_hub/model/wallpaper_model.dart';
+import 'package:wallpaper_hub/views/catagoriesView.dart';
 import 'package:wallpaper_hub/views/searchView.dart';
 import 'package:wallpaper_hub/widgets/widget.dart';
 import 'package:http/http.dart' as http;
@@ -122,36 +123,45 @@ class CatagoryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 4),
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              imgUrl,
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    CatagoriesView(catagoryName: title.toLowerCase())))
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 4),
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imgUrl,
+                height: 50,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Container(
               height: 50,
               width: 100,
-              fit: BoxFit.cover,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.black26,
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15),
+              ),
             ),
-          ),
-          Container(
-            height: 50,
-            width: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Colors.black26,
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              title,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

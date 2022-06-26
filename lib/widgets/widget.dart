@@ -1,22 +1,19 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../model/wallpaper_model.dart';
 
 Widget brandname() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        "Wallpaper",
-        style: TextStyle(color: Colors.black87),
+  return Container(
+    alignment: Alignment.center ,
+    child: RichText(
+      text: TextSpan(
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+        children: const <TextSpan>[
+          TextSpan(text: 'Wallpaper', style: TextStyle(color: Colors.black)),
+          TextSpan(text: 'Hub', style: TextStyle(color: Colors.blue)),
+        ],
       ),
-      Text(
-        "Hub",
-        style: TextStyle(color: Colors.blue),
-      )
-    ],
+    ),
   );
 }
 
@@ -35,8 +32,8 @@ Widget wallpapersList({required List<WallpaperModel> wallpapers, context}) {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(17),
               child: Container(
-              child: Image.network(wallpaper.src.portrait, fit: BoxFit.cover),
-        ),
+                child: Image.network(wallpaper.src.portrait, fit: BoxFit.cover),
+              ),
             ));
       }).toList(),
     ),
